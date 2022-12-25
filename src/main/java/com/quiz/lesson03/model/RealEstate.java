@@ -3,7 +3,7 @@ package com.quiz.lesson03.model;
 import java.util.Date;
 
 public class RealEstate {
-
+	
 	private int id;
 	private int realtorId;
 	private String address;
@@ -62,10 +62,10 @@ public class RealEstate {
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
-	public Date getUpdatedAt() {
+	public Date getupdatedAt() {
 		return updatedAt;
 	}
-	public void setUpdatedAt(Date updatedAt) {
+	public void setupdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
 	
