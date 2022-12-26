@@ -40,13 +40,9 @@ public class RealEstateBO {
 		return realEstateDAO.insertRealEstate(realEstate);
 	}
 	
-//	address : 썅떼빌리버 오피스텔 814호
-//	area : 45
-//	type : 월세
-//	price : 100000
-//	rentPrice : 120
 	public int addRealEstateAsField(String address, int area, String type,
 			int price, Integer rentPrice) {
+		
 		return realEstateDAO.insertRealEstateAsField(address, area, type, price, rentPrice);
 	}
 }
