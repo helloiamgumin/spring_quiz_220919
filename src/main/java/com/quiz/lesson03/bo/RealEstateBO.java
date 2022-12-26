@@ -1,5 +1,7 @@
 package com.quiz.lesson03.bo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,19 +10,43 @@ import com.quiz.lesson03.model.RealEstate;
 
 @Service
 public class RealEstateBO {
-
+	
+	// input: controller가 넘겨주는 id
+	// output: RealEsate 한 행(단건)
 	@Autowired
 	private RealEstateDAO realEstateDAO;
 	
-	public RealEstate getRealEstate1(int id) {
-		return realEstateDAO.selectRealEstate1(id);
+	// input: controller가 넘겨주는 id
+	// output: RealEsate 단건 => 컨트롤러하나테 넘김
+	public RealEstate getRealEstateById(int id) {
+		return realEstateDAO.selectRealEstateById(id);
 	}
 	
-	public RealEstate getRealEstate2(int rentPrice) {
-		return realEstateDAO.selectRealEstate2(rentPrice);
+	// input: controller가 넘겨준 rentPrice
+	// output: List<RealEstate> => 컨트롤러한테 넘김 
+	public List<RealEstate> getRealEstateListByRentPrice(int rentPrice) {
+		return realEstateDAO.selectRealEstateListByRentPrice(rentPrice);
 	}
 	
-	public RealEstate getRealEstate3(int area, int price) {
-		return realEstateDAO.selectRealEstate3(area, price);
+	// input: 컨트롤러가 넘겨준 area, price
+	// output: List<RealEstate> => 컨트롤러한테 넘김
+	public List<RealEstate> getRealEstateListByAreaPrice(int area, int price) {
+		return realEstateDAO.selectRealEstateListByAreaPrice(area, price);
+	}
+	
+	// input: RealEstate
+	// output: int(성공한 행의 개수)
+	public int addRealEstate(RealEstate realEstate) {
+		return realEstateDAO.insertRealEstate(realEstate);
+	}
+	
+//	address : 썅떼빌리버 오피스텔 814호
+//	area : 45
+//	type : 월세
+//	price : 100000
+//	rentPrice : 120
+	public int addRealEstateAsField(String address, int area, String type,
+			int price, Integer rentPrice) {
+		return realEstateDAO.insertRealEstateAsField(address, area, type, price, rentPrice);
 	}
 }

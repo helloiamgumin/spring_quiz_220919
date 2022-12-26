@@ -1,5 +1,7 @@
 package com.quiz.lesson03;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,29 +16,29 @@ public class Lesson03Quiz01RestController {
 	@Autowired
 	private RealEstateBO realEstateBO;
 	
+	//http://localhost/lesson03/quiz01/1?id=20
 	@RequestMapping("/lesson03/quiz01/1")
 	public RealEstate quiz01_1(
 			@RequestParam("id") int id
 	) {
-		return realEstateBO.getRealEstate1(id);
+		return realEstateBO.getRealEstateById(id);	// json
 	}
 	
+	// http://localhost/lesson03/quiz01/2?rent_price=90
 	@RequestMapping("/lesson03/quiz01/2")
-	public RealEstate quiz01_2(
-			@RequestParam("rentPrice") int rentPrice
+	public List<RealEstate> quiz01_2(
+			@RequestParam("rent_price") int rentPrice
 	) {
-		//if (rentPrice < ) {
-			return realEstateBO.getRealEstate2(rentPrice);
-		//}
+			return realEstateBO.getRealEstateListByRentPrice(rentPrice);
 	}
 	
+	// http://localhost/lesson03/quiz01/3?area=90&price=130000
 	@RequestMapping("/lesson03/quiz01/3")
-	public RealEstate quiz01_3(
-			@RequestParam("area") int area
-			, @RequestParam("price") int price
+	public List<RealEstate> quiz01_3(
+			@RequestParam("area") int area,
+			@RequestParam("price") int price
 	) {
-		//if(area >=  & price <= ) {
-			return realEstateBO.getRealEstate3(area, price);
-		//}
+			return realEstateBO.getRealEstateListByAreaPrice(area, price);
 	}
+	
 }
