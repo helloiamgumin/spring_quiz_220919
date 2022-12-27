@@ -18,11 +18,16 @@
 			<div class="form-group">
 				<label for="nickname">닉네임</label>
 				<input type="text" id="nickname" name="nickname" class="form-control col-3" placeholder="닉네임을 입력하세요">
+			</div>
+			<div class="form-group">
 				<label for="url">프로필 사진 url</label>
 				<input type="text" id="url" name="url" class="form-control col-9" placeholder="url을 입력하세요">
+			</div>
+			<div class="form-group">
 				<label for="temperature">온도</label>
 				<input type="text" id="temperature" name="temperature" class="form-control col-3" placeholder="온도를 입력하세요">
 			</div>
+			<input type="submit" class="btn btn-primary" value="추가">
 		</form>
 	</div>
 </body>
